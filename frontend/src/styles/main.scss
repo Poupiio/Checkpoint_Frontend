@@ -44,7 +44,86 @@ body {
    display: flex;
    justify-content: center;
    align-items: center;
+   flex-wrap: wrap;
    .country-card {
       margin: $secondary-space;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border: solid 1px $border;
+      border-radius: $border-radius;
+      padding: $secondary-space;
+      width: 100px;
+   }
+}
+.add-country-form {
+   border: solid 1px $border;
+   background: $bg-secondary;
+   border-radius: $border-radius;
+   padding: $secondary-space;
+   max-width: 80%;
+   margin: $main-space auto;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   .input-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      input, select {
+         max-width: 120px;
+         margin-top: $tertiary-space;
+         padding: $tertiary-space
+      }
+   }
+   .submit-btn {
+      background: $pink;
+      padding: $secondary-space;
+      border-radius: $border-radius;
+      border: solid 1px $pink;
+      cursor: pointer;
+      color: $text-contrast;
+      transition: $transition;
+      &:hover {
+         border: solid 1px $pink;
+         background: transparent;
+         color: $text;
+      }
+   }
+}
+.country-details {
+   max-width: 200px;
+   margin: $main-space auto;
+   .country-card {
+      margin: $secondary-space;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: $secondary-space;
+      width: fit-content;
+      .country-name {
+         margin-bottom: $tertiary-space;
+      }
+   }
+}
+
+@media (max-width: $mobile) {
+   .add-country-form {
+      flex-direction: column;
+      align-items: flex-start;
+      .input-container {
+         max-width: 100%;
+         input, select {
+            max-width: 100%;
+         }
+      }
+      .submit-btn {
+         width: 100%;
+         margin-top: $secondary-space;
+      }
    }
 }

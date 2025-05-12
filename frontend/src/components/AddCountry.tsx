@@ -36,18 +36,22 @@ const AddCountry = () => {
    if (error) return <p>Erreur : {error.message}</p>;
    
    return (
-      <div className="add-country-form">
-         <form onSubmit={handleSubmit(onSubmit)}>
-            <label htmlFor="name">Name
+      <form className="add-country-form" onSubmit={handleSubmit(onSubmit)}>
+         <div className="input-container">
+            <label htmlFor="name">Name</label>
                <input type="text" {...register("name", { required: true })} />
-            </label>
-            <label htmlFor="emoji">Emoji
+            
+         </div>
+         <div className="input-container">
+            <label htmlFor="emoji">Emoji</label>
                <input type="text" {...register("emoji", { required: true })} />
-            </label>
-            <label htmlFor="code">Code
+         </div>
+         <div className="input-container">
+            <label htmlFor="code">Code</label>
                <input type="text" {...register("code", { required: true })} />
-            </label>
-            <label htmlFor="continent">Continent
+         </div>
+         <div className="input-container">
+            <label htmlFor="continent">Continent</label>
                <select {...register("continent")}>
                   {continentData?.continents?.map((continent: Continent) => (
                      <option key={continent.id} value={continent.id}>
@@ -55,10 +59,9 @@ const AddCountry = () => {
                      </option>
                   ))}
                </select>
-            </label>
-            <button className="submit-btn" type="submit">Add</button>
-         </form>
-      </div>
+         </div>
+         <button className="submit-btn" type="submit">Add</button>
+      </form>
    );
 };
 

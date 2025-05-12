@@ -15,10 +15,10 @@ const Country = () => {
    if (data) {
       return (
          <div className="country-details">
-            <div className="country-card-content">
-               <p>{data.country.name}</p>
+            <div className="country-card">
                <p>{data.country.emoji}</p>
-               <p>Continent : {data.country?.continent ? (data.country?.continent.name) : "Non renseigné"}</p>
+               <p className="country-name">Name: {data.country.name} ({data.country.code})</p>
+               <p>Continent : {data.country?.continent ? (data.country?.continent.name) : "Not specified"}</p>
             </div>
          </div>
       );
