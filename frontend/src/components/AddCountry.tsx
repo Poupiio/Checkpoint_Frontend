@@ -19,14 +19,19 @@ const AddCountry = () => {
    } = useForm<formInput>();
    const onSubmit: SubmitHandler<formInput> = async (formData) => {
       try {
+         console.log("data", formData);
+         console.log(typeof formData.continent);
+         
+         
          const dataForBackend = {
             ...formData,
-            continent: Number(formData.continent)
+            continent: { id: Number(formData.continent) }
          };
          await createCountry({
             variables: { data: dataForBackend }
          });
          navigate("/");
+         
       } catch (err) {
          console.error("An error occured", errors, err);
       }
@@ -52,7 +57,7 @@ const AddCountry = () => {
          </div>
          <div className="input-container">
             <label htmlFor="continent">Continent</label>
-               <select {...register("continent")}>
+               <select {...register("continent", { required: false })} id="continent">
                   {continentData?.continents?.map((continent: Continent) => (
                      <option key={continent.id} value={continent.id}>
                         {continent.name}
