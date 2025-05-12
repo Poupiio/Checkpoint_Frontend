@@ -19,10 +19,6 @@ const AddCountry = () => {
    } = useForm<formInput>();
    const onSubmit: SubmitHandler<formInput> = async (formData) => {
       try {
-         console.log("data", formData);
-         console.log(typeof formData.continent);
-         
-         
          const dataForBackend = {
             ...formData,
             continent: { id: Number(formData.continent) }
